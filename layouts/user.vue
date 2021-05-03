@@ -15,12 +15,5 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import TheHeader from '~/components/molecules/header/TheHeader.vue'
-
-export default Vue.extend({
-  components: { TheHeader },
-  data() {
-    return {}
-  },
-})
+export default Vue.extend({})
 </script>

@@ -1,8 +1,17 @@
 <template functional>
-  <v-app-bar>
-    <nuxt-link exact to="/"> Title </nuxt-link>
+  <v-app-bar app>
+    <nuxt-link
+      style="text-decoration: none"
+      class="headline white--text"
+      exact
+      to="/"
+      >タイトル</nuxt-link
+    >
     <v-spacer />
-    <v-avatar> </v-avatar>
+    <v-avatar>
+      <v-img v-if="img" />
+      <v-icon v-else />
+    </v-avatar>
   </v-app-bar>
 </template>
 

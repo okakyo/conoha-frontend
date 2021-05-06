@@ -1,24 +1,19 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" md="9" xl="6">
-      <v-card outlined class="pa-3">
-        <v-row wrap>
-          <v-col cols="6" md="4" xl="3">
-            <v-card>
-              <v-img src="https://placehold.jp/150x150.png" />
-              <v-card-title> sample </v-card-title>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-card>
+    <v-col cols="12">
+      <v-card> sample </v-card>
+    </v-col>
+    <v-col cols="12" sm="10" md="9">
+      <doc-window />
     </v-col>
   </v-row>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
+import DocWindow from '~/components/templates/index/DocWindow.vue'
 export default defineComponent({
-  components: {},
+  components: { DocWindow },
   setup() {},
 })
 </script>

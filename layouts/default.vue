@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <the-header />
-    <v-main>
+    <v-main app>
       <v-container>
         <nuxt />
       </v-container>
@@ -13,13 +13,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { mdiAccount } from '@mdi/js'
 import TheHeader from '~/components/molecules/header/TheHeader.vue'
-
-export default Vue.extend({
+export default defineComponent({
   components: { TheHeader },
-  data() {
-    return {}
+  setup() {
+    const headerIcon = ref(mdiAccount)
+    return {
+      headerIcon,
+    }
   },
 })
 </script>

@@ -50,6 +50,9 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    icons: {
+      iconfont: 'mdiSvg',
+    },
     theme: {
       dark: true,
       themes: {

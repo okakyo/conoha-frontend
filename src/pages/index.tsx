@@ -7,12 +7,16 @@ const Home = ()=>{
   return (
     <>
 	 <Flex
-	 	display="inline"
+		
 	 >
-		 <Box
-		 > 
-		 <h1>Hello world</h1>
-		 </Box> 
+		 <Box 
+			margin={3}
+			bgColor="white"
+			height="80vh"
+			width="100%" 	
+		>
+			Good
+		 </Box>
 	 </Flex>
      
     </>

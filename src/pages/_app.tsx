@@ -2,6 +2,7 @@ import { ChakraProvider, Container,Box } from '@chakra-ui/react'
 import { AppProps } from 'next/app'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import {TheHeader} from "@/components/molecules/headers/TheHeader";
+import {LeftSidebar} from "@/components/organisms/sidebar/TheSidebar";
 const cache = new InMemoryCache();
 const client = new ApolloClient({
   uri: `api:3000/graphql`,
@@ -11,19 +12,19 @@ const client = new ApolloClient({
 function MyApp({ Component, pageProps }:AppProps) {
   return (
 	<ChakraProvider>
+		<Box bgColor="gray.100" height="100vh">
 		<ApolloProvider client={client}>
 			<TheHeader/>
-			<Box bgColor="blackAlpha.100" height="100%">
 			<Container
-				
-				maxW="container.lg"
+				display="inline"
+				maxW="container.xl"
 				padding={5}
+				
 			>
+				<LeftSidebar/>
 				<Component {...pageProps} />
 			</Container>
-			</Box>
-			
-		</ApolloProvider>
+		</ApolloProvider></Box>
 	</ChakraProvider>
   )
 }

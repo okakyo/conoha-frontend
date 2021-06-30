@@ -2,7 +2,6 @@ FROM node:14.2-alpine as base
 
 WORKDIR /apps/base
 
-
 COPY package-lock.json .
 
 COPY package.json .

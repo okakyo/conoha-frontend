@@ -11,7 +11,6 @@ export const GlobalProvider:VFC<props> = ({children})=>{
 	return (
 		<GlobalContext.Provider value={{
 			user,setUser,
-			
 		}}>
 			{children}
 		</GlobalContext.Provider>

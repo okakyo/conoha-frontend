@@ -1,54 +1,63 @@
-import {Flex, Divider, IconButton,Avatar,MenuIcon, Heading,Text} from "@chakra-ui/react";
-import { FC, useState } from "react";
-export const LeftSidebar:FC = ()=>{
-	const [navSize, changeNavSize] = useState("large")
+import {Flex,VStack ,Button,Heading,Link} from "@chakra-ui/react";
+import { useRouter } from "next/router";
+import NextLink, { LinkProps } from "next/link"
+
+export type SideRouterProps = {
+	to: string
+	name:string
+	isActive?:boolean
+}
+
+const SideRouter=(
+
+	props:SideRouterProps)=>{
+	return (
+		<NextLink href={props.to}>
+			<Link 
+				w="100%"
+				p={3}
+				rounded ="xl"
+				color={props.isActive?"teal.700":"gray.600"}
+				bgColor={props.isActive&& "teal.50"}
+				_hover={{color:"teal.600" ,bgColor:"teal.50"}}  >
+				{props.name}
+			</Link>
+		</NextLink>
+	)
+}
+
+export const LeftSidebar = ()=>{
+	const router = useRouter()
+	const isActivePath= (to:string)=>router.pathname===to
+	const router_list:SideRouterProps[] = [
+		{to:"/",name:"Home",isActive:false},
+		{to:"/users",name:"Users",isActive:false},
+		{to:"/setting",name:"Setting",isActive:false},
+]
 	return (
 		<>
 		<Flex
+			display={{base:"none", md:"block"}}
 			position="sticky"
-			bgColor="gray.200"
-			p={4}
-			left="5"
-			h="80vh"
-			mt="2.5vh"
-			borderRadius={navSize=="small"?'15px':'30px'}
-			w = {navSize=="small"?"75px":"200px"}
-			flexDir="column"
-			justifyContent="space-between"
+			h="100vh"
+			left={0}
+			p={5}
+			w={{base:"none",sm:"75px",md:"250px"}}
+			top={0}
+			bgColor="gray.100"
+			borderWidth="1px" 
 		>
-			<Flex
-				p="5%"
-				flexDir="column"
-				alignItems={navSize=="small"?"center":"flex-start"}
-				as="nav"
+			<Heading
+				as="h3"
+				textColor="gray.700"
 			>
-				<IconButton
-					aria-label="change-nav"
-					background="none"
-					mt={5}
-					_hover={{background:'none'}}
-					onClick={()=>{
-						navSize=="small"?changeNavSize("large"):changeNavSize("small")
-					}}
-				/>
-			</Flex>
-			<Flex
-				p="5%"
-				flexDir="column"
-				w="100%"
-				alignItems={navSize=="small"?"center":"flex-start"}
-				mb={4}
-			>
-				<Divider display={navSize=="small"?"none":"flex"} />
-				<Flex mt={4} align="center">
-					<Avatar size="sm"/>
-					<Flex mt={4} align="center">
-						<Heading as="h3" size="sm">Sample</Heading>		
-						<Text color="grey">Admin</Text>
-					</Flex>	
-				</Flex>
+				Sample
+			</Heading>
+			
+			<VStack py={5}>
+				{router_list.map((item)=><SideRouter {...item} isActive={isActivePath(item.to)} />)}
 				
-			</Flex>
+			</VStack>
 		</Flex>
 		</>
 	)

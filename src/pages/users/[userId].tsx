@@ -1,8 +1,9 @@
 
-const  UserDetail = ()=>{
+const  UserDetail = ({props})=>{
+
 	return(
 		<>
-			
+			Id:{props.id}
 		</>
 	)
 }

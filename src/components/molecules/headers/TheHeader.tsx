@@ -2,12 +2,9 @@ import {Flex, Heading, useDisclosure,Box,Text,Stack,Button} from "@chakra-ui/rea
 import {VFC} from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
-type props= {
-	
-}
 
 
-export const TheHeader:VFC<props> = (props)=>{
+export const TheHeader= (props)=>{
 	const {isOpen,onOpen,onClose} = useDisclosure();
 	const handleToggle = ()=>(isOpen?onClose():onOpen())
 	return (
@@ -18,26 +15,23 @@ export const TheHeader:VFC<props> = (props)=>{
 				justify="space-between"
 				wrap="wrap"
 				padding={6}
-				bg="teal.500"
-				color="white"
-				{...props}
+				bg="gray.50"
+				color="gray.600"
+				borderBottom="1px"
+				borderColor="gray.200"
 			>
 			
-			<Flex align="center" mr={5}>
-				<Heading as="h1" size="lg" letterSpacing={"tighter"}>
-					Sample Text
-				</Heading>
-			</Flex>
 			<Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
 				<HamburgerIcon/>
 			</Box>
+			<Flex></Flex>
 			<Box
 				display={{ base: isOpen ? "block" : "none", md: "block" }}
 				mt={{ base: 4, md: 0 }}
 			>
 				<Button
 				variant="outline"
-				_hover={{ bg: "teal.700", borderColor: "teal.700" }}
+				_hover={{ bg: "gray.200" }}
 				>
 				Create account
 				</Button>

@@ -1,0 +1,19 @@
+
+query article($id: String!) {
+	article(id:$id) {
+		id 
+		title 
+		isPublished
+		content
+
+	}
+}
+
+query articles($userId: String!) {
+	articles(userId:$userId) {
+		id 
+		title
+		isPublished
+		content
+	}
+}

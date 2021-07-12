@@ -1,7 +1,7 @@
 export const AuthWindow = ()=>{
 	return(
 		<>
-		
+			
 		</>
 	)
 }

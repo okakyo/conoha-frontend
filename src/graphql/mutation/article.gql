@@ -1,0 +1,11 @@
+mutation createArticle ($user:CreateUserInput) {
+	
+}
+
+mutation updateUser {
+
+}
+
+mutation deleteUser {
+
+}

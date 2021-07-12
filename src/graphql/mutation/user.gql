@@ -1,0 +1,11 @@
+mutation createUser($user:){
+	
+}
+
+mutation updateUser{ 
+
+}
+
+mutation deleteUser {
+
+}

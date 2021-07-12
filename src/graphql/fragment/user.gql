@@ -1,0 +1,16 @@
+fragment user on User {
+	id 
+	name 
+	thumbnail 
+}
+
+fragment userDetail on User {
+  id
+  name
+  thumbnail
+  introduction {
+    email
+    phone
+    bio
+  }
+}

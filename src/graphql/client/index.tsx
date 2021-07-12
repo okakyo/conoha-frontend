@@ -18,6 +18,8 @@ export type ArticleEntity = {
   __typename?: 'ArticleEntity';
   id: Scalars['String'];
   title: Scalars['String'];
+  thumbnail: Scalars['String'];
+  description: Scalars['String'];
   isPublished: Scalars['Boolean'];
   content: Scalars['String'];
   authorId: Scalars['String'];
@@ -27,6 +29,7 @@ export type CreateArticleInput = {
   title: Scalars['String'];
   authorId: Scalars['String'];
   isPublished?: Maybe<Scalars['Boolean']>;
+  thumbnail?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   content: Scalars['String'];
 };
@@ -118,6 +121,7 @@ export type UpdateArticleInput = {
   title?: Maybe<Scalars['String']>;
   authorId?: Maybe<Scalars['String']>;
   isPublished?: Maybe<Scalars['Boolean']>;
+  thumbnail?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
 };
 
@@ -158,7 +162,7 @@ export type ArticleQuery = (
   { __typename?: 'Query' }
   & { article?: Maybe<(
     { __typename?: 'ArticleEntity' }
-    & Pick<ArticleEntity, 'id' | 'title' | 'isPublished' | 'content'>
+    & Pick<ArticleEntity, 'id' | 'title' | 'isPublished' | 'thumbnail' | 'description' | 'content'>
   )> }
 );
 
@@ -171,7 +175,7 @@ export type ArticlesQuery = (
   { __typename?: 'Query' }
   & { articles: Array<(
     { __typename?: 'ArticleEntity' }
-    & Pick<ArticleEntity, 'id' | 'title' | 'isPublished' | 'content'>
+    & Pick<ArticleEntity, 'id' | 'title' | 'thumbnail' | 'description' | 'isPublished' | 'content'>
   )> }
 );
 
@@ -199,6 +203,8 @@ export const ArticleDocument = gql`
     id
     title
     isPublished
+    thumbnail
+    description
     content
   }
 }
@@ -236,6 +242,8 @@ export const ArticlesDocument = gql`
   articles(userId: $userId) {
     id
     title
+    thumbnail
+    description
     isPublished
     content
   }

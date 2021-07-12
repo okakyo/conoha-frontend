@@ -30,8 +30,9 @@ export const TheHeader= (props)=>{
 				mt={{ base: 4, md: 0 }}
 			>
 				<Button
-				variant="outline"
-				_hover={{ bg: "gray.200" }}
+					variant="outline"
+					_hover={{ bg: "gray.200" }}
+					href="/signup"
 				>
 				Create account
 				</Button>

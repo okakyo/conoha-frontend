@@ -1,0 +1,8 @@
+fragment article on Article {
+  id
+  title
+  thumbnail
+  description
+  isPublished
+
+}

@@ -1,7 +1,8 @@
-const Articles = ()=>{
+export default function ArticlesPages(){
+	
+
 	return (
-		<></>
+		<>
+		</>
 	)
 }
-
-export default Articles

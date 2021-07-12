@@ -4,6 +4,8 @@ query article($id: String!) {
 		id 
 		title 
 		isPublished
+		thumbnail
+		description
 		content
 
 	}
@@ -13,6 +15,8 @@ query articles($userId: String!) {
 	articles(userId:$userId) {
 		id 
 		title
+		thumbnail
+		description
 		isPublished
 		content
 	}

@@ -1,5 +1,7 @@
 export const AuthForm = ()=>{
 	return(
-		<></>
+		<>
+		
+		</>
 	)
 }

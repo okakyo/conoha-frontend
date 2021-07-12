@@ -2,6 +2,7 @@ import {Box,Image,Link,LinkProps,AspectRatio} from "@chakra-ui/react";
 import NextLink from "next/link";
 
 type CardProps = {
+	id:string
 	title:string 
 	uri?: string
 	author?: string
@@ -13,22 +14,36 @@ type CardProps = {
 export const TaskCard = (props:CardProps)=>{
 	return (
 		<>
-			<Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" _hover={{boxShadow:"md"}}>
-				<AspectRatio maxW="sm" ratio={2}>
-					<Image src={props.thumbnail}/>
-				</AspectRatio>
-				<Box p={6}>
+			<NextLink href={`articles/${props.id}`}>
+				<Link>
 					<Box
-						mt="1"
-						fontWeight="semibold"
-						as="h4"
-						lineHeight="tight"
-						isTruncated
+					maxW="sm"
+					borderWidth="1px" 
+					borderRadius="lg" 
+					overflow="hidden" 
+					_hover={{boxShadow:"lg"}}
+					_active={{ bgColor: "gray.300" }}
 					>
-						{props.title}
+						<AspectRatio maxW="sm" ratio={2}>
+							<Image src=
+								"/noimg.png"
+							
+							/>
+						</AspectRatio>
+						<Box p={6}>
+							<Box
+								mt="1"
+								fontWeight="semibold"
+								as="h4"
+								lineHeight="tight"
+								isTruncated
+							>
+								{props.title}
+							</Box>
+						</Box>
 					</Box>
-				</Box>
-			</Box>
+				</Link>
+			</NextLink>
 		</>
 	)
 }

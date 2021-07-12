@@ -8,7 +8,5 @@ storiesOf("Views/Index",module)
 		<ChakraProvider>
 			<Index/>
 		</ChakraProvider>
-		
 	)
-	
 })

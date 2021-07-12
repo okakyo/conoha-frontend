@@ -1,11 +1,14 @@
+import { BaseLayout } from "@/components/templates/layouts/BaseLayout";
 
-export const Setting =()=>{
+export default function Setting(){
 	
 	return (
 		<>
+		<BaseLayout>
+			Setting
+		</BaseLayout>
 			
 		</>
 	)
 }
 
-export default Setting 

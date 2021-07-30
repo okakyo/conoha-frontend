@@ -1,4 +1,4 @@
-import {Box,Image,Link,LinkProps,AspectRatio} from "@chakra-ui/react";
+import {Box,Image,Link,AspectRatio} from "@chakra-ui/react";
 import NextLink from "next/link";
 
 type CardProps = {
@@ -27,7 +27,6 @@ export const TaskCard = (props:CardProps)=>{
 						<AspectRatio maxW="sm" ratio={2}>
 							<Image src=
 								"/noimg.png"
-							
 							/>
 						</AspectRatio>
 						<Box p={6}>

@@ -1,6 +1,8 @@
 import {  useArticlesQuery } from '@/graphql/client'
-import {TaskCard} from "@/components/organisms/cards/TaskCard"
-import {BaseGrid} from "@/components/molecules/grids/BaseGrid"
+import { TaskCard } from "@/components/organisms/cards/TaskCard"
+import { BaseGrid } from "@/components/molecules/grids/BaseGrid"
+import { Center,Link } from '@chakra-ui/react'
+import NextLink from 'next/link'
 
 export const ArticleWindow = ()=>{
 	const {data,loading,error} = useArticlesQuery({variables:{userId:"sample-1"}})
@@ -8,11 +10,23 @@ export const ArticleWindow = ()=>{
 	if(error) return <div>{error.message}</div>
 	else {
 		return (
-			<BaseGrid>
-				{data.articles.map(article=>
-					<TaskCard id={article.id} title={article.title} thumbnail={article.thumbnail}/>
-				)}
-			</BaseGrid>
-		)
+      <>
+        <BaseGrid>
+          {data.articles.map((article) => (
+            <TaskCard
+              key={article.id}
+              id={article.id}
+              title={article.title}
+              thumbnail={article.thumbnail}
+            />
+          ))}
+        </BaseGrid>
+        <Center p={5}>
+          <NextLink href={`articles`}>
+            <Link>記事の続きはこちら</Link>
+          </NextLink>
+        </Center>
+      </>
+    );
 	}
 }

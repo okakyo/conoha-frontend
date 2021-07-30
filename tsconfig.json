@@ -29,7 +29,7 @@
 	  "next-env.d.ts",
 	  "**/*.ts",
 	  "**/*.tsx"
-	],
+, "src/pages/api/auth/[...auth0].ts"	],
 	"exclude": [
 	  "node_modules",
 	  ".storybook"

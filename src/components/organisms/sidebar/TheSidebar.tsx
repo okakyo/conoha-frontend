@@ -1,21 +1,22 @@
-import { useState } from "react";
 import {MdHome,MdSettings,MdPerson} from "react-icons/md";
-import {Flex,VStack ,HStack,Box,Link, IconButton,Icon} from "@chakra-ui/react";
+import {Flex,VStack ,HStack,Box,Link, IconButton,} from "@chakra-ui/react";
 import {HamburgerIcon} from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-import NextLink, { LinkProps } from "next/link"
 import {SidebarListProps,SidebarList} from "@/components/molecules/lists/SidebarList";
+import React from "react";
 
-
-export const LeftSidebar = ()=>{
+type Props = {
+	isOpen: boolean,
+	setOpen: any
+}
+const leftSidebar = ({ isOpen ,setOpen}:Props)=>{
 	const router = useRouter()
 	const isActivePath= (to:string)=>router.pathname===to
-	const [isOpen,setOpen] = useState(true);
 
 	// TODO: Use Pick<T,K> to change the type 
 	const router_list:SidebarListProps[] = [
 		{to:"/",name:"Home",isActive:false,icon:MdHome},
-		{to:"/users",name:"Users",isActive:false,icon:MdPerson},
+		{to:"/teams",name:"Teams",isActive:false,icon:MdPerson},
 		{to:"/setting",name:"Setting",isActive:false,icon:MdSettings},
 	]
 	return (
@@ -57,10 +58,12 @@ export const LeftSidebar = ()=>{
 					}
 				</HStack>
 				<VStack py={5}>
-					{router_list.map((item)=><SidebarList {...item} isActive={isActivePath(item.to)} isOpen={isOpen} />)}
+					{router_list.map((item)=><SidebarList key={item.to} {...item} isActive={isActivePath(item.to)} isOpen={isOpen} />)}
 				</VStack>
 			</Flex>
 		</>
 	)
 	
 }
+
+export const LeftSidebar = React.memo(leftSidebar)

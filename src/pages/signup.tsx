@@ -11,6 +11,7 @@ export default function Signup(){
 				<Box
 					rounded={'lg'}
 					boxShadow={'lg'}
+					bgColor={'gray.50'}
 					p={8}
 				>
 				<Stack spacing={4}>

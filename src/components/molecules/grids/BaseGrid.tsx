@@ -7,11 +7,11 @@ type Props = {
 export const BaseGrid:VFC<Props>  = ({children})=>{
 	return (
 		<SimpleGrid
-					columns={{base:1,sm:2,lg:3}}
-					spacingX={4}
-					spacingY={4}
-				>
-					<>{children}</>
+			columns={{base:1,sm:2,lg:3}}
+			spacingX={4}
+			spacingY={4}
+		>
+			{children}
 		</SimpleGrid>
 	)
 }

@@ -9,16 +9,21 @@ import { ReactNode } from "react";
 type LayoutProps = {
   children: ReactNode;
   imgThumbnail?: string;
+  isSidebar?: boolean;
 };
 
-export const BaseLayout = ({ imgThumbnail, children }: LayoutProps) => {
+export const BaseLayout = ({
+  imgThumbnail,
+  children,
+  isSidebar = true,
+}: LayoutProps) => {
   // TODO: このLocalStorage については分割を行う
   const { isOpen, setIsOpen } = useUserLocalContext();
   const { isLoading, error, user } = useUser();
   return (
     <>
       <Flex>
-        <LeftSidebar isOpen={isOpen} setOpen={setIsOpen} />
+        {isSidebar && <LeftSidebar isOpen={isOpen} setOpen={setIsOpen} />}
         <Box width="100%">
           <TheHeader user={user} />
           {imgThumbnail && (

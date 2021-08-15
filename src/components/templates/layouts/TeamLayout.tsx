@@ -1,5 +1,13 @@
-import { Container, Flex } from "@chakra-ui/react";
+import { Flex, Container } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
-export const TeamLayout = () => {
-  return <Flex></Flex>;
+type TeamLayoutProps = {
+  children: ReactNode;
+};
+export const TeamLayout = ({ children }: TeamLayoutProps) => {
+  return (
+    <Flex>
+      <Container size="container.xl">{children}</Container>
+    </Flex>
+  );
 };

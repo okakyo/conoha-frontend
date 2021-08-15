@@ -1,12 +1,9 @@
-import { MdHome, MdSettings, MdPerson } from "react-icons/md";
-import { Flex, VStack, HStack, Box, Link, IconButton } from "@chakra-ui/react";
+import { Flex, VStack, HStack, Box, IconButton } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-import {
-  SidebarListProps,
-  SidebarList,
-} from "@/components/molecules/lists/SidebarList";
+import { SidebarList } from "@/components/molecules/lists/SidebarList";
 import React from "react";
+import { isActivePath, RouterList, SidebarListProps } from "@/libs";
 
 type Props = {
   isOpen: boolean;
@@ -14,14 +11,9 @@ type Props = {
 };
 const leftSidebar = ({ isOpen, setOpen }: Props) => {
   const router = useRouter();
-  const isActivePath = (to: string) => router.pathname === to;
 
   // TODO: Use Pick<T,K> to change the type
-  const router_list: SidebarListProps[] = [
-    { to: "/", name: "Home", isActive: false, icon: MdHome },
-    { to: "/teams", name: "Teams", isActive: false, icon: MdPerson },
-    { to: "/setting", name: "Setting", isActive: false, icon: MdSettings },
-  ];
+  const router_list: SidebarListProps[] = RouterList();
   return (
     <>
       <Flex
@@ -52,7 +44,7 @@ const leftSidebar = ({ isOpen, setOpen }: Props) => {
             <SidebarList
               key={item.to}
               {...item}
-              isActive={isActivePath(item.to)}
+              isActive={isActivePath(router, item.to)}
               isOpen={isOpen}
             />
           ))}

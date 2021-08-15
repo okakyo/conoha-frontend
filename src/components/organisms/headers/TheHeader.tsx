@@ -1,12 +1,23 @@
 import { UserProfile } from "@auth0/nextjs-auth0";
-import { Flex, Avatar, Box, Button } from "@chakra-ui/react";
+import {
+  Flex,
+  Avatar,
+  Box,
+  Button,
+  IconButton,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
+import React from "react";
+import { TheDrawer } from "../drawer/TheDrawer";
 
 type Props = {
   user?: UserProfile;
 };
 
 export const TheHeader = ({ user }: Props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   return (
     <>
@@ -22,7 +33,13 @@ export const TheHeader = ({ user }: Props) => {
         borderBottom="1px"
         borderColor="gray.200"
       >
-        <Box display={{ base: "block", md: "none" }}></Box>
+        <IconButton
+          display={{ base: "display", md: "none" }}
+          aria-label="drawer-menu"
+          icon={<HamburgerIcon />}
+          variant="outline"
+          onClick={() => onOpen()}
+        />
         <Flex />
         {user ? (
           <Avatar size="md" src={user.picture} />
@@ -43,6 +60,7 @@ export const TheHeader = ({ user }: Props) => {
           </Box>
         )}
       </Flex>
+      <TheDrawer isOpen={isOpen} onClose={onClose} />
     </>
   );
 };

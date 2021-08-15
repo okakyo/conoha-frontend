@@ -32,7 +32,7 @@ export const TheDrawer = ({ onClose, isOpen }: DrawerProps) => {
               py={3}
               fontWeight="semibold"
               fontSize="lg"
-              spacing="24px"
+              spacingX={"24px"}
             >
               <Box>Sample</Box>
             </HStack>

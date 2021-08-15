@@ -10,7 +10,7 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import React from "react";
-import { TheDrawer } from "../drawer/TheDrawer";
+import { TheDrawer } from "../drawers/TheDrawer";
 
 type Props = {
   user?: UserProfile;

@@ -20,6 +20,7 @@ const leftSidebar = ({ isOpen, setOpen }: Props) => {
         display={{ base: "none", md: "block" }}
         position="sticky"
         h="100vh"
+        px={3}
         py={5}
         left={0}
         w={{ base: "none", md: isOpen ? "300px" : "75px" }}
@@ -27,7 +28,7 @@ const leftSidebar = ({ isOpen, setOpen }: Props) => {
         bgColor="gray.100"
         borderWidth="1px"
       >
-        <HStack px={3} fontWeight="semibold" fontSize="lg" spacing="24px">
+        <HStack px={3} fontWeight="semibold" fontSize="lg" spacing="15px">
           <IconButton
             aria-label="changeSidebarSize"
             fontSize="20px"
@@ -39,7 +40,7 @@ const leftSidebar = ({ isOpen, setOpen }: Props) => {
           ></IconButton>
           {isOpen && <Box>Sample</Box>}
         </HStack>
-        <VStack py={5}>
+        <Box py={4}>
           {router_list.map((item) => (
             <SidebarList
               key={item.to}
@@ -48,7 +49,7 @@ const leftSidebar = ({ isOpen, setOpen }: Props) => {
               isOpen={isOpen}
             />
           ))}
-        </VStack>
+        </Box>
       </Flex>
     </>
   );

@@ -1,7 +1,7 @@
 import { useArticlesQuery } from "@/graphql/client";
 import { TaskCard } from "@/components/organisms/cards/TaskCard";
 import { BaseGrid } from "@/components/molecules/grids/BaseGrid";
-import { Center, Link } from "@chakra-ui/react";
+import { Center, Divider, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { ArticleListItem } from "@/components/molecules";
 
@@ -16,12 +16,20 @@ export const ArticleWindow = () => {
       <>
         <BaseGrid>
           {data.articles.map((article) => (
-            <TaskCard
-              key={article.id}
-              id={article.id}
-              title={article.title}
-              thumbnail={article.thumbnail}
-            />
+            <>
+              <TaskCard
+                key={article.id}
+                id={article.id}
+                title={article.title}
+                thumbnail={article.thumbnail}
+              />
+              <TaskCard
+                key={article.id}
+                id={article.id}
+                title={article.title}
+                thumbnail={article.thumbnail}
+              />
+            </>
           ))}
         </BaseGrid>
         <Center p={5}>
@@ -29,7 +37,7 @@ export const ArticleWindow = () => {
             <Link>記事の続きはこちら</Link>
           </NextLink>
         </Center>
-        <ArticleListItem></ArticleListItem>
+        <Divider />
       </>
     );
   }

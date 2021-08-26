@@ -1,12 +1,19 @@
 import { Heading, Img, HStack, Text, Box } from "@chakra-ui/react";
 import React from "react";
 
-export const ArticleListItem = () => {
+type ArticleItemProps = {
+  title: string;
+  text: string;
+  thumbnail: string;
+  url?: string;
+};
+
+export const ArticleListItem = (props: ArticleItemProps) => {
   return (
     <>
-      <HStack px={5} py={3} borderWidth="1px" borderColor="gray.100">
+      <HStack px={5} py={3} borderBottomWidth="1px" borderColor="gray.200">
         <Img
-          boxSize="75px"
+          mr="5"
           objectFit="cover"
           src="https://bit.ly/sage-adebayo"
           alt="Segun Adebayo"

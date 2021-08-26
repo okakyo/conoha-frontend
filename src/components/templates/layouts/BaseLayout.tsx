@@ -1,7 +1,13 @@
-import { Container, Box, Flex, AspectRatio, Image } from "@chakra-ui/react";
-import { TheHeader } from "@/components/organisms/headers/TheHeader";
-import { LeftSidebar } from "@/components/organisms/sidebar/TheSidebar";
-import { TheFooter } from "@/components/organisms/footer/TheFooter";
+import {
+  Container,
+  Box,
+  Flex,
+  AspectRatio,
+  Image,
+  Grid,
+  GridItem,
+} from "@chakra-ui/react";
+import { TheHeader, LeftSidebar, TheFooter } from "@/components";
 import { useUserLocalContext } from "@/hooks";
 import { useUser } from "@auth0/nextjs-auth0";
 import { ReactNode } from "react";
@@ -19,7 +25,7 @@ export const BaseLayout = ({
 }: LayoutProps) => {
   // TODO: このLocalStorage については分割を行う
   const { isOpen, setIsOpen } = useUserLocalContext();
-  const { isLoading, error, user } = useUser();
+  const { user } = useUser();
   return (
     <>
       <Flex>

@@ -1,5 +1,5 @@
-import { MdHome, MdSettings, MdPerson } from "react-icons/md";
-import router, { NextRouter } from "next/router";
+import { MdHome, MdPerson, MdLibraryBooks } from "react-icons/md";
+import { NextRouter } from "next/router";
 
 export type SidebarListProps = {
   to: string;
@@ -12,8 +12,13 @@ export type SidebarListProps = {
 export const RouterList = (): SidebarListProps[] => {
   return [
     { to: "/", name: "Home", isActive: false, icon: MdHome },
+    {
+      to: "/articles",
+      name: "Articles",
+      isActive: false,
+      icon: MdLibraryBooks,
+    },
     { to: "/teams", name: "Teams", isActive: false, icon: MdPerson },
-    { to: "/setting", name: "Setting", isActive: false, icon: MdSettings },
   ];
 };
 

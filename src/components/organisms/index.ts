@@ -2,6 +2,7 @@ export * from "./cards/MemberCard";
 export * from "./cards/TaskCard";
 export * from "./drawers/TheDrawer";
 export * from "./headers/TheHeader";
+export * from "./headers/ArticleHeader";
 export * from "./footer/TheFooter";
 export * from "./sidebar/TheSidebar";
 export * from "./forms/AuthForm";

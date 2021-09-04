@@ -7,7 +7,7 @@ export default function ArticlesPages() {
     <>
       <BaseLayout>
         <Box mb={4} p={2} color="gray.600">
-			<ArticleWindow />
+          <ArticleWindow />
         </Box>
       </BaseLayout>
     </>

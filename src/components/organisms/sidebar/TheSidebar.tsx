@@ -11,8 +11,6 @@ type Props = {
 };
 const leftSidebar = ({ isOpen, setOpen }: Props) => {
   const router = useRouter();
-
-  // TODO: Use Pick<T,K> to change the type
   const router_list: SidebarListProps[] = RouterList();
   return (
     <>

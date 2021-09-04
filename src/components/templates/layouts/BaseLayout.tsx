@@ -1,12 +1,4 @@
-import {
-  Container,
-  Box,
-  Flex,
-  AspectRatio,
-  Image,
-  Grid,
-  GridItem,
-} from "@chakra-ui/react";
+import { Container, Box, Flex, AspectRatio, Image } from "@chakra-ui/react";
 import { TheHeader, LeftSidebar, TheFooter } from "@/components";
 import { useUserLocalContext } from "@/hooks";
 import { useUser } from "@auth0/nextjs-auth0";
@@ -23,7 +15,6 @@ export const BaseLayout = ({
   children,
   isSidebar = true,
 }: LayoutProps) => {
-  // TODO: このLocalStorage については分割を行う
   const { isOpen, setIsOpen } = useUserLocalContext();
   const { user } = useUser();
   return (

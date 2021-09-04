@@ -41,7 +41,7 @@ export const ArticleHeader = ({ title, articleId }: ArticleHeaderProps) => {
         <Spacer />
         {ButtonProps.map((item) => (
           <Button
-            key={item.title}
+            key={item.text}
             colorScheme={item.color}
             leftIcon={item.icon}
             onClick={() => {

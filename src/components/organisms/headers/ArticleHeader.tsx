@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/button";
 import { Heading, HStack, Spacer } from "@chakra-ui/layout";
-import { AddIcon } from "@chakra-ui/icons";
+import { AddIcon, EditIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 
 type ButtonPropsTypes = {
@@ -10,7 +10,12 @@ type ButtonPropsTypes = {
   color: string;
 };
 
-export const ArticleHeader = ({ articleTitle }: { articleTitle: string }) => {
+type ArticleHeaderProps = {
+  title: string;
+  articleId: string;
+};
+
+export const ArticleHeader = ({ title, articleId }: ArticleHeaderProps) => {
   const router = useRouter();
   const ButtonProps: ButtonPropsTypes[] = [
     {
@@ -19,18 +24,24 @@ export const ArticleHeader = ({ articleTitle }: { articleTitle: string }) => {
       url: "create",
       color: "twitter",
     },
+    {
+      text: "Edit",
+      icon: <EditIcon />,
+      url: `${articleId}/edit`,
+      color: "whatsapp",
+    },
   ];
 
   return (
     <>
       <HStack>
         <Heading as="h3" size="lg" p={3}>
-          {articleTitle}
+          {title}
         </Heading>
         <Spacer />
         {ButtonProps.map((item) => (
           <Button
-            key={item.text}
+            key={item.title}
             colorScheme={item.color}
             leftIcon={item.icon}
             onClick={() => {

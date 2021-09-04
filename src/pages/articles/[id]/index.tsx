@@ -1,16 +1,7 @@
 import { useRouter } from "next/router";
-import { useArticleQuery } from "@/graphql/client";
-import {
-  Divider,
-  Text,
-  Box,
-  Editable,
-  EditableInput,
-  EditablePreview,
-} from "@chakra-ui/react";
-
 import { BaseLayout, ArticleHeader } from "@/components";
-
+import { useArticleQuery } from "@/graphql/client";
+import { Divider, Text, Box } from "@chakra-ui/react";
 export default function Article() {
   // query の処理
   const router = useRouter();
@@ -28,16 +19,13 @@ export default function Article() {
     <>
       <BaseLayout>
         <Box mb={3}>
-          <ArticleHeader articleTitle={article.title} articleId={articleId} />
+          <ArticleHeader title={article.title} articleId={articleId} />
         </Box>
         <Box p={3} borderRadius="md" borderWidth="1px">
           <Box p={1}>
             <Text>{article.description}</Text>
             <Divider />
-            <Editable defaultValue={article.content} submitOnBlur={false}>
-              <EditablePreview />
-              <EditableInput />
-            </Editable>
+            <Text>{article.content}</Text>
           </Box>
         </Box>
       </BaseLayout>

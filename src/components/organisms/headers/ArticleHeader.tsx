@@ -35,7 +35,7 @@ export const ArticleHeader = ({ title, articleId }: ArticleHeaderProps) => {
   return (
     <>
       <HStack>
-        <Heading as="h3" size="lg" p={3}>
+        <Heading as="h3" size="lg" py={3} px={6}>
           {title}
         </Heading>
         <Spacer />

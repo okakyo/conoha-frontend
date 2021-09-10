@@ -8,12 +8,16 @@ type LayoutProps = {
   children: ReactNode;
   imgThumbnail?: string;
   isSidebar?: boolean;
+  isContainer?: boolean;
+  size?: string;
 };
 
 export const BaseLayout = ({
   imgThumbnail,
   children,
   isSidebar = true,
+  isContainer = true,
+  size = "lg",
 }: LayoutProps) => {
   const { isOpen, setIsOpen } = useUserLocalContext();
   const { user } = useUser();
@@ -28,10 +32,15 @@ export const BaseLayout = ({
               <Image src={imgThumbnail} />
             </AspectRatio>
           )}
-          <Container minH="90vh" p={4} maxW="container.lg">
-            {children}
-          </Container>
-          <TheFooter />
+          {isContainer ? (
+            <Container minH="90vh" p={4} maxW={`container.${size}`}>
+              {children}
+            </Container>
+          ) : (
+            <Box p={5} minH="90vh">
+              {children}
+            </Box>
+          )}
         </Box>
       </Flex>
     </>

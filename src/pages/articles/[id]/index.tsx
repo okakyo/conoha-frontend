@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { BaseLayout, ArticleHeader } from "@/components";
 import { useArticleQuery } from "@/graphql/client";
-import { Divider, Text, Box } from "@chakra-ui/react";
+import { Flex, Text, Box } from "@chakra-ui/react";
 export default function Article() {
   // query の処理
   const router = useRouter();
@@ -17,17 +17,19 @@ export default function Article() {
   const article = data.article;
   return (
     <>
-      <BaseLayout>
+      <BaseLayout isContainer={false}>
         <Box mb={3}>
           <ArticleHeader title={article.title} articleId={articleId} />
         </Box>
-        <Box p={3} borderRadius="md" borderWidth="1px">
-          <Box p={1}>
-            <Text>{article.description}</Text>
-            <Divider />
-            <Text>{article.content}</Text>
+        <Flex py={3}>
+          <Box px={5} w={{ base: "100%", md: "80%" }}>
+            <Box h="500px" borderWidth="1px" borderColor="gray.200"></Box>
+            <Text p={3} fontSize="2xl">
+              {article.content}
+            </Text>
           </Box>
-        </Box>
+          <Box>sample</Box>
+        </Flex>
       </BaseLayout>
     </>
   );

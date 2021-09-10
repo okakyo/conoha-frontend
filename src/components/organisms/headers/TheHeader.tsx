@@ -2,6 +2,11 @@ import { UserProfile } from "@auth0/nextjs-auth0";
 import {
   Flex,
   Avatar,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Icon,
   Box,
   Button,
   IconButton,
@@ -11,7 +16,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import React from "react";
 import { TheDrawer } from "../drawers/TheDrawer";
-
+import { MdExitToApp, MdSettings } from "react-icons/md";
 type Props = {
   user?: UserProfile;
 };
@@ -42,7 +47,27 @@ export const TheHeader = ({ user }: Props) => {
         />
         <Flex />
         {user ? (
-          <Avatar size="md" src={user.picture} />
+          <Menu>
+            <MenuButton>
+              <Avatar size="md" src={user.picture} />
+            </MenuButton>
+            <MenuList>
+              <MenuItem
+                py={3}
+                onClick={() => router.push("/setting")}
+                icon={<Icon boxSize={5} as={MdSettings} />}
+              >
+                アカウント設定
+              </MenuItem>
+              <MenuItem
+                py={3}
+                onClick={() => router.push("/api/auth/logout")}
+                icon={<Icon boxSize={5} as={MdExitToApp} />}
+              >
+                ログアウト
+              </MenuItem>
+            </MenuList>
+          </Menu>
         ) : (
           <Box
             height="48px"

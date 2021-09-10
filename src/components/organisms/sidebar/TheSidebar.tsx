@@ -26,7 +26,7 @@ const leftSidebar = ({ isOpen, setOpen }: Props) => {
         bgColor="gray.100"
         borderWidth="1px"
       >
-        <HStack px={3} fontWeight="semibold" fontSize="lg" spacing="15px">
+        <HStack px={1} fontWeight="semibold" fontSize="lg" spacing="15px">
           <IconButton
             aria-label="changeSidebarSize"
             fontSize="20px"

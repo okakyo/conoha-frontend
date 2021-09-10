@@ -7,7 +7,7 @@ type TeamLayoutProps = {
 export const TeamLayout = ({ children }: TeamLayoutProps) => {
   return (
     <Flex>
-      <Container size="container.xl">{children}</Container>
+      <Container size="xl">{children}</Container>
     </Flex>
   );
 };

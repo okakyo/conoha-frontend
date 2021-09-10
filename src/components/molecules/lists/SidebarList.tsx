@@ -1,4 +1,4 @@
-import { Box, Link, HStack } from "@chakra-ui/layout";
+import { Box, Link, HStack, Center } from "@chakra-ui/layout";
 import { Icon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 import { SidebarListProps } from "@/libs";
@@ -7,7 +7,7 @@ export const SidebarList = (props: SidebarListProps) => {
   return (
     <Box
       w="100%"
-      px={5}
+      px={3}
       py={3}
       my={3}
       borderRadius="xl"
@@ -18,7 +18,9 @@ export const SidebarList = (props: SidebarListProps) => {
       <NextLink href={props.to}>
         <Link>
           <HStack spacing="24px">
-            <Icon alignItems="center" boxSize={6} as={props.icon} />
+            <Center>
+              <Icon alignItems="center" boxSize={6} as={props.icon} />
+            </Center>
             {props.isOpen && <Box fontWeight="semibold">{props.name}</Box>}
           </HStack>
         </Link>

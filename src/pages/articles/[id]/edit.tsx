@@ -1,4 +1,3 @@
-import { ArticleWindow } from "@/components/templates/index/TaskWindow";
 import { BaseLayout } from "@/components/templates/layouts/BaseLayout";
 import { Box } from "@chakra-ui/react";
 import React from "react";

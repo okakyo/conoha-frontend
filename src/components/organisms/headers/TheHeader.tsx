@@ -16,7 +16,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import React from "react";
 import { TheDrawer } from "../drawers/TheDrawer";
-import { MdExitToApp, MdSettings } from "react-icons/md";
+import { UserMenu } from "@/components/molecules/menu/UserMenu";
 type Props = {
   user?: UserProfile;
 };
@@ -47,27 +47,7 @@ export const TheHeader = ({ user }: Props) => {
         />
         <Flex />
         {user ? (
-          <Menu>
-            <MenuButton>
-              <Avatar size="md" src={user.picture} />
-            </MenuButton>
-            <MenuList>
-              <MenuItem
-                py={3}
-                onClick={() => router.push("/setting")}
-                icon={<Icon boxSize={5} as={MdSettings} />}
-              >
-                アカウント設定
-              </MenuItem>
-              <MenuItem
-                py={3}
-                onClick={() => router.push("/api/auth/logout")}
-                icon={<Icon boxSize={5} as={MdExitToApp} />}
-              >
-                ログアウト
-              </MenuItem>
-            </MenuList>
-          </Menu>
+          <UserMenu user={user} router={router} />
         ) : (
           <Box
             height="48px"

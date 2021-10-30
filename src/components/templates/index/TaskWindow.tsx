@@ -15,21 +15,19 @@ export const ArticleWindow = () => {
     return (
       <>
         <BaseGrid>
-          {data.articles.map((article) => (
-            <>
+          {data.articles.map((article, index) => (
+            <div key={index}>
               <TaskCard
-                key={article.id}
                 id={article.id}
                 title={article.title}
                 thumbnail={article.thumbnail}
               />
               <TaskCard
-                key={article.id}
                 id={article.id}
                 title={article.title}
                 thumbnail={article.thumbnail}
               />
-            </>
+            </div>
           ))}
         </BaseGrid>
         <Center p={5}>
@@ -37,7 +35,6 @@ export const ArticleWindow = () => {
             <Link>記事の続きはこちら</Link>
           </NextLink>
         </Center>
-        <Divider />
       </>
     );
   }
